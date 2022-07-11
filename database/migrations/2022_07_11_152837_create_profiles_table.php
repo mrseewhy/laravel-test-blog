@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->longText('body');
+            $table->string('description');
+            $table->string('nickname');
+            $table->unsignedInteger('author_id')->unique();
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('profiles');
     }
 };

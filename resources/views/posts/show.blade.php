@@ -12,4 +12,11 @@
     </form></span></p>
 </div>
 
+<hr>
+
+
+@foreach ($post->comment as $comment)
+    <p> {{$comment->content}} </p>
+@endforeach
+
 @endsection

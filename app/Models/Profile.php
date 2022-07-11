@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\Comment;
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model
+class Profile extends Model
 {
     use HasFactory;
 
-    public function comment(){
-        return $this->hasMany(Comment::class);
+    public function author(){
+        return $this->belongsTo(Author::class);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Profile;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -14,9 +16,11 @@ class PostsController extends Controller
      */
     public function index()
     {
+        $authors = Author::all();
+        $profiles = Profile::all();
         $posts = Post::orderBy('updated_at', 'desc')->get();
         $n = 1;
-        return view('posts.index', ['posts' => $posts, 'n' => $n]);
+        return view('posts.index', ['posts' => $posts, 'n' => $n, 'authors' => $authors, 'profiles' => $profiles]);
     }
 
     /**

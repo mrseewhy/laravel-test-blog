@@ -19,7 +19,7 @@
         <tr>
             <th scope="row">{{$n++}}</th>
             <td><a href="/posts/{{$post->id}}">{{$post->title}}</a></td>
-            <td>{{Str::limit($post->body,20)}}</td>
+            <td>{!!Str::limit($post->body,20)!!}</td>
             <td><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-warning">Edit</a> 
                 </td>
                 <td><form action="{{route('posts.destroy', ['post'=>$post->id])}}" method="post">

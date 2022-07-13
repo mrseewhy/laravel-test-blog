@@ -1,17 +1,6 @@
 @extends('dashboard.adminapp')
 @section('content')
 
-<h3>Authors</h3>
-@foreach($authors as $author)
-<p>{{$author->profile->nickname}}</p>
-@endforeach
-
-<h3>Authors</h3>
-@foreach($profiles as $profile)
-<p>{{$profile->author->name}}</p>
-
-@endforeach
-
 @if(count($posts) < 1)
 <h3> No Post Yet </h3>
 @else

@@ -16,11 +16,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $authors = Author::all();
-        $profiles = Profile::all();
+    
         $posts = Post::orderBy('updated_at', 'desc')->get();
+        // $posts = Post::with('comments')->get();
         $n = 1;
-        return view('posts.index', ['posts' => $posts, 'n' => $n, 'authors' => $authors, 'profiles' => $profiles]);
+        return view('posts.index', ['posts' => $posts, 'n' => $n]);
     }
 
     /**

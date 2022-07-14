@@ -2,19 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Comment;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Peep extends Model
 {
     use HasFactory;
-
     public function comment(){
         return $this->hasMany(Comment::class);
     }
 
-    public function peep(){
-        return $this->belongsTo(Peep::class);
+    public function post(){
+        return $this->hasMany(Post::class);
     }
 }

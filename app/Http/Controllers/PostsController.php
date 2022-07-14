@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
+use App\Models\Peep;
 use App\Models\Profile;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -21,6 +22,9 @@ class PostsController extends Controller
         // $posts = Post::with('comments')->get();
         $n = 1;
         return view('posts.index', ['posts' => $posts, 'n' => $n]);
+
+        
+        
     }
 
     /**
